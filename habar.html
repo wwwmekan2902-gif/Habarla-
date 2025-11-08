@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Habarlaşmak</title>
+<style>
+    body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(180deg, #004d00, #000);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        background: rgba(0,0,0,0.6);
+        padding: 25px;
+        border-radius: 16px;
+        width: 90%;
+        max-width: 380px;
+        box-shadow: 0 0 10px #00ff66;
+    }
+    h2 {
+        text-align: center;
+        color: #00ff99;
+        margin-bottom: 20px;
+    }
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0 12px 0;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        font-size: 15px;
+    }
+    input {
+        background: #111;
+        color: white;
+    }
+    textarea {
+        background: #111;
+        color: white;
+        resize: none;
+        height: 80px;
+    }
+    button {
+        width: 100%;
+        padding: 12px;
+        background: #00ff66;
+        color: #000;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    button:hover {
+        background: #00cc55;
+    }
+    .note {
+        text-align: center;
+        color: #ccc;
+        font-size: 13px;
+        margin-top: 12px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Habarlaşmak</h2>
+    <form id="contactForm">
+        <input type="text" id="name" placeholder="Adyňyzy giriziň">
+        <input type="tel" id="phone" placeholder="Telefon belgiňiz">
+        <textarea id="message" placeholder="Size haýsy tölegler gerek – şu ýerde ýazyp ugradyň"></textarea>
+        <button type="submit">Ugrat</button>
+    </form>
+    <div class="note">
+        Siziň ugratjak sms-iňiz tiz wagtda gowşar, we nomeriňize habar geler.
+    </div>
+</div>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
+    
+    if(!name || !phone || !message){
+        alert("Hemme ýerleri dolduryň!");
+        return;
+    }
+    
+    const mailto = `mailto:yn﻿amdaruc@gmail.com?subject=Täze habar&body=Ady: ${name}%0ATelefon: ${phone}%0AHabar: ${message}`;
+    window.location.href = mailto;
+});
+</script>
+</body>
+</html>
